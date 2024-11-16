@@ -2,7 +2,7 @@
   "name": "personal-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://blazzajec.github.io/personal-website",
+  "homepage": "https://blaz10.github.io/personal-website",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -13,6 +13,11 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "4.0.3",
     "framer-motion": "^4.1.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
+    "gh-pages": "^6.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,8 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.2.0"
   }
 }
