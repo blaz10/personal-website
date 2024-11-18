@@ -42,9 +42,9 @@ https://www.udemy.com/certificate/UC-595e0ce1-0de6-4abf-8494-5accd0e17bf9/
 Skills: Mobile Application Development
 
 4. Patents
-Pametni merilnik sladkorja v tekočinah SI 201500210
+Pametni merilnik sladkorja v tekočinahSI 201500210
 http://www3.uil-sipo.si/PublicationServer/documentpdf.jsp?iDocId=36103&iepatch=.pdf
 
 
 5. Skills
-Project management, Mobile application development, Flutter, Medical device product development, Software development, Bluetooth low energy, Firebase, Microsoft office, Arduino IDE, MQTT, Dart, Android studio, GitLab, Java, C++, Raspberry PI, PLC programming, Python 
+Project management, Mobile application development, Flutter, Medical device product development, Software development, Bluetooth low energy, Firebase, Microsoft office, Arduino IDE, MQTT, Dart, Android studio, GitLab, Java, C++, Raspberry PI, PLC programming, Python

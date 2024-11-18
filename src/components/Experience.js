@@ -87,107 +87,264 @@ const Experience = () => {
   ];
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Work Experience Section */}
-        <motion.div variants={itemVariants}>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <WorkIcon sx={{ mr: 2 }} /> Work Experience
-            </Typography>
-            {experiences.map((exp, index) => (
-              <Paper key={index} elevation={3} sx={{ p: 3, mb: 3 }}>
-                <Typography variant="h6" gutterBottom>{exp.title}</Typography>
-                <Typography variant="subtitle1" color="primary" gutterBottom>{exp.company}</Typography>
-                <Typography variant="body2" color="text.secondary" gutterBottom>{exp.period}</Typography>
-                {exp.location && (
-                  <Typography variant="body2" color="text.secondary" gutterBottom>{exp.location}</Typography>
-                )}
-                <Box sx={{ mt: 2 }}>
-                  {exp.skills.map((skill, idx) => (
-                    <Chip key={idx} label={skill} sx={{ m: 0.5 }} size="small" />
+    <Box
+      sx={{
+        background: 'linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%)',
+        minHeight: '100vh',
+        pt: 8,
+        pb: 12,
+      }}
+    >
+      <Container maxWidth="lg">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Work Experience Section */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{ mb: 8 }}>
+              <Typography 
+                variant="h3" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  mb: 4,
+                  background: 'linear-gradient(45deg, #2C3E50 30%, #3498DB 90%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                <WorkIcon sx={{ mr: 2, fontSize: 40 }} /> Work Experience
+              </Typography>
+              {experiences.map((exp, index) => (
+                <Paper 
+                  key={index} 
+                  elevation={0}
+                  sx={{ 
+                    p: 4, 
+                    mb: 3,
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <Typography variant="h5" gutterBottom color="primary">{exp.title}</Typography>
+                  <Typography variant="h6" gutterBottom sx={{ color: 'text.secondary' }}>{exp.company}</Typography>
+                  <Typography variant="subtitle1" color="text.secondary" gutterBottom>{exp.period}</Typography>
+                  {exp.location && (
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>{exp.location}</Typography>
+                  )}
+                  <Box sx={{ mt: 3 }}>
+                    {exp.skills.map((skill, idx) => (
+                      <Chip 
+                        key={idx} 
+                        label={skill} 
+                        sx={{ 
+                          m: 0.5,
+                          background: 'linear-gradient(45deg, #3498DB 30%, #2C3E50 90%)',
+                          color: 'white',
+                        }} 
+                      />
+                    ))}
+                  </Box>
+                </Paper>
+              ))}
+            </Box>
+          </motion.div>
+
+          {/* Education Section */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{ mb: 8 }}>
+              <Typography 
+                variant="h3" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  mb: 4,
+                  background: 'linear-gradient(45deg, #2C3E50 30%, #3498DB 90%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                <SchoolIcon sx={{ mr: 2, fontSize: 40 }} /> Education
+              </Typography>
+              <Paper 
+                elevation={0}
+                sx={{ 
+                  p: 4,
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                }}
+              >
+                <Typography variant="h5" gutterBottom color="primary">{education.school}</Typography>
+                <Typography variant="h6" color="text.secondary">{education.degree}</Typography>
+              </Paper>
+            </Box>
+          </motion.div>
+
+          {/* Certifications Section */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{ mb: 8 }}>
+              <Typography 
+                variant="h3" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  mb: 4,
+                  background: 'linear-gradient(45deg, #2C3E50 30%, #3498DB 90%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                <CardMembershipIcon sx={{ mr: 2, fontSize: 40 }} /> Certifications
+              </Typography>
+              {certifications.map((cert, index) => (
+                <Paper 
+                  key={index} 
+                  elevation={0}
+                  sx={{ 
+                    p: 4, 
+                    mb: 3,
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    transition: 'transform 0.2s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                    },
+                  }}
+                >
+                  <Link 
+                    href={cert.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    sx={{ 
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      display: 'block',
+                    }}
+                  >
+                    <Typography variant="h5" gutterBottom color="primary">{cert.title}</Typography>
+                  </Link>
+                  <Box sx={{ mt: 2 }}>
+                    {cert.skills.map((skill, idx) => (
+                      <Chip 
+                        key={idx} 
+                        label={skill} 
+                        sx={{ 
+                          m: 0.5,
+                          background: 'linear-gradient(45deg, #3498DB 30%, #2C3E50 90%)',
+                          color: 'white',
+                        }}
+                      />
+                    ))}
+                  </Box>
+                </Paper>
+              ))}
+            </Box>
+          </motion.div>
+
+          {/* Patents Section */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{ mb: 8 }}>
+              <Typography 
+                variant="h3" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  mb: 4,
+                  background: 'linear-gradient(45deg, #2C3E50 30%, #3498DB 90%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                <LightbulbIcon sx={{ mr: 2, fontSize: 40 }} /> Patents
+              </Typography>
+              {patents.map((patent, index) => (
+                <Paper 
+                  key={index} 
+                  elevation={0}
+                  sx={{ 
+                    p: 4, 
+                    mb: 3,
+                    background: 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    transition: 'transform 0.2s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-4px)',
+                    },
+                  }}
+                >
+                  <Link 
+                    href={patent.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    sx={{ 
+                      textDecoration: 'none',
+                      color: 'inherit',
+                    }}
+                  >
+                    <Typography variant="h5" color="primary">{patent.title}</Typography>
+                  </Link>
+                </Paper>
+              ))}
+            </Box>
+          </motion.div>
+
+          {/* Skills Section */}
+          <motion.div variants={itemVariants}>
+            <Box sx={{ mb: 6 }}>
+              <Typography 
+                variant="h3" 
+                gutterBottom 
+                sx={{ 
+                  display: 'flex', 
+                  alignItems: 'center',
+                  mb: 4,
+                  background: 'linear-gradient(45deg, #2C3E50 30%, #3498DB 90%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                <BuildIcon sx={{ mr: 2, fontSize: 40 }} /> Skills
+              </Typography>
+              <Paper 
+                elevation={0}
+                sx={{ 
+                  p: 4,
+                  background: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                }}
+              >
+                <Grid container spacing={1}>
+                  {skills.map((skill, index) => (
+                    <Grid item key={index}>
+                      <Chip 
+                        label={skill} 
+                        sx={{ 
+                          m: 0.5,
+                          background: 'linear-gradient(45deg, #3498DB 30%, #2C3E50 90%)',
+                          color: 'white',
+                          fontWeight: 500,
+                        }}
+                      />
+                    </Grid>
                   ))}
-                </Box>
+                </Grid>
               </Paper>
-            ))}
-          </Box>
+            </Box>
+          </motion.div>
         </motion.div>
-
-        {/* Education Section */}
-        <motion.div variants={itemVariants}>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <SchoolIcon sx={{ mr: 2 }} /> Education
-            </Typography>
-            <Paper elevation={3} sx={{ p: 3 }}>
-              <Typography variant="h6" gutterBottom>{education.school}</Typography>
-              <Typography variant="subtitle1" color="text.secondary">{education.degree}</Typography>
-            </Paper>
-          </Box>
-        </motion.div>
-
-        {/* Certifications Section */}
-        <motion.div variants={itemVariants}>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <CardMembershipIcon sx={{ mr: 2 }} /> Certifications
-            </Typography>
-            {certifications.map((cert, index) => (
-              <Paper key={index} elevation={3} sx={{ p: 3, mb: 3 }}>
-                <Link href={cert.link} target="_blank" rel="noopener noreferrer" 
-                      sx={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography variant="h6" gutterBottom>{cert.title}</Typography>
-                </Link>
-                <Box sx={{ mt: 2 }}>
-                  {cert.skills.map((skill, idx) => (
-                    <Chip key={idx} label={skill} sx={{ m: 0.5 }} size="small" />
-                  ))}
-                </Box>
-              </Paper>
-            ))}
-          </Box>
-        </motion.div>
-
-        {/* Patents Section */}
-        <motion.div variants={itemVariants}>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <LightbulbIcon sx={{ mr: 2 }} /> Patents
-            </Typography>
-            {patents.map((patent, index) => (
-              <Paper key={index} elevation={3} sx={{ p: 3, mb: 3 }}>
-                <Link href={patent.link} target="_blank" rel="noopener noreferrer"
-                      sx={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography variant="h6">{patent.title}</Typography>
-                </Link>
-              </Paper>
-            ))}
-          </Box>
-        </motion.div>
-
-        {/* Skills Section */}
-        <motion.div variants={itemVariants}>
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-              <BuildIcon sx={{ mr: 2 }} /> Skills
-            </Typography>
-            <Paper elevation={3} sx={{ p: 3 }}>
-              <Grid container spacing={1}>
-                {skills.map((skill, index) => (
-                  <Grid item key={index}>
-                    <Chip label={skill} sx={{ m: 0.5 }} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Paper>
-          </Box>
-        </motion.div>
-      </motion.div>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 
